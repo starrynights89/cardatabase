@@ -2,6 +2,8 @@ package com.packt.cardatabase.domain;
 
 import javax.persistence.*;
 
+import java.util.Set;
+
 @Entity
 public class Car {
     @Id
@@ -15,6 +17,9 @@ public class Car {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "owner")
     private Owner owner;
+
+    @ManyToMany(mappedBy="cars")
+    private Set<Owner> owners;
 
     public Car(String brand, String model, String color, String registerNumber,
                int year, int price, Owner owner) {
@@ -90,5 +95,13 @@ public class Car {
 
     public void setOwner(Owner owner) {
         this.owner = owner;
+    }
+
+    public Set<Owner> getOwners() {
+        return owners;
+    }
+
+    public void setOwners(Set<Owner> owners) {
+        this.owners = owners;
     }
 }
