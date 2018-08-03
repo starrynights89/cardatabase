@@ -4,8 +4,6 @@ import com.packt.cardatabase.domain.Car;
 import com.packt.cardatabase.domain.CarReposity;
 import com.packt.cardatabase.domain.Owner;
 import com.packt.cardatabase.domain.OwnerReposity;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -22,12 +20,8 @@ public class CardatabaseApplication {
     @Autowired
     private OwnerReposity oreposity;
 
-    private static final Logger logger =
-            LoggerFactory.getLogger(CardatabaseApplication.class);
-
     public static void main(String[] args) {
         SpringApplication.run(CardatabaseApplication.class, args);
-        logger.info("Hello Spring Boot");
     }
 
     @Bean
