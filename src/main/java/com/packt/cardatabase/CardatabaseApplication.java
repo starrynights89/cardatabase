@@ -44,9 +44,13 @@ public class CardatabaseApplication {
                     "TY-AE86", 1986, 6000, owner2));
 
             urepository.save(new User(
-                    "user", "$2a$04$8gIp48DabGnzWI.zrOBAGuTJxmDhALxHeTwqc1US9CFBQ94HQlMMe", "USER"));
+                    "user",
+                    "$2a$04$8gIp48DabGnzWI.zrOBAGuTJxmDhALxHeTwqc1US9CFBQ94HQlMMe",
+                    "USER"));
             urepository.save(new User(
-                    "admin", "$2a$04$8gIp48DabGnzWI.zrOBAGuTJxmDhALxHeTwqc1US9CFBQ94HQlMMe", "ADMIN"));
+                    "admin",
+                    "$2a$04$8gIp48DabGnzWI.zrOBAGuTJxmDhALxHeTwqc1US9CFBQ94HQlMMe",
+                    "ADMIN"));
         };
     }
 }
