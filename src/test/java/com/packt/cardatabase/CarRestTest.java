@@ -23,7 +23,7 @@ public class CarRestTest {
 	@Test
 	public void testAuthentication() throws Exception {
 		// Testing authentication with correct credentials
-        this.mockMvc.perform(post("/login").content("{\"username\":\"admin\", \"password\":\"\"}")).
+        this.mockMvc.perform(post("/login").content("{\"username\":\"admin\", \"password\":\"Password\"}")).
         	andDo(print()).andExpect(status().isOk());
 
 		// Testing authentication with wrong credentials
@@ -31,7 +31,7 @@ public class CarRestTest {
         	andDo(print()).andExpect(status().is4xxClientError());
                
 		// Testing authentication with correct credentials
-        this.mockMvc.perform(post("/login").content("{\"username\":\"user\", \"password\":\"\"}")).
+        this.mockMvc.perform(post("/login").content("{\"username\":\"user\", \"password\":\"Password\"}")).
         	andDo(print()).andExpect(status().isOk());
 
 		// Testing authentication with wrong credentials
