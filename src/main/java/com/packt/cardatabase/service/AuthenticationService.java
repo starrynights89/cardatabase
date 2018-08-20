@@ -7,8 +7,9 @@ import org.springframework.security.core.Authentication;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import static java.util.Collections.emptyList;
 import java.util.Date;
+
+import static java.util.Collections.emptyList;
 
 public class AuthenticationService {
 
@@ -33,7 +34,7 @@ public class AuthenticationService {
         if (token != null) {
             String user = Jwts.parser()
                     .setSigningKey(SIGNINGKEY)
-                    .parseClaimsJwt(token.replace(PREFIX, ""))
+                    .parseClaimsJws(token.replace(PREFIX, ""))
                     .getBody()
                     .getSubject();
 
