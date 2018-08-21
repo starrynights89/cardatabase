@@ -6,10 +6,17 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.builder.SpringApplicationBuilder;
+import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 import org.springframework.context.annotation.Bean;
 
 @SpringBootApplication
-public class CardatabaseApplication {
+public class CardatabaseApplication extends SpringBootServletInitializer {
+
+    @Override
+    protected SpringApplicationBuilder configure (SpringApplicationBuilder application) {
+        return application.sources(CardatabaseApplication.class);
+    }
 
     // Inject repositiories
     @Autowired
@@ -21,7 +28,8 @@ public class CardatabaseApplication {
     @Autowired
     private UserRepository urepository;
 
-    public static void main(String[] args) {
+    // Run program method
+    public static void main(String[] args) throws Exception {
         SpringApplication.run(CardatabaseApplication.class, args);
     }
 
